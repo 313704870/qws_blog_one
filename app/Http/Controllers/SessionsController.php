@@ -16,10 +16,12 @@ class SessionsController extends Controller
         ]);
     }
 
+    //注册
     public function create(){
         return view('sessions.create');
     }
 
+    //注册 保存
     public function store(Request $request){
 
         $credentials = $this->validate($request, [
@@ -43,6 +45,7 @@ class SessionsController extends Controller
         }
     }
 
+    //退出
     public function destroy(){
         Auth::logout();
         session()->flash('success', '您已成功退出！');
